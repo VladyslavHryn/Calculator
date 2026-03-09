@@ -1,6 +1,4 @@
-﻿namespace CalculatorAssigment;
-
-public class Calculator
+﻿public class Calculator
 {
     public static double Evaluate(string[] tokens)
     {
@@ -12,7 +10,32 @@ public class Calculator
             {
                 stack.Push(double.Parse(token));
             }
+            else if (token == "+")
+            {
+                double b = stack.Pop(); 
+                double a = stack.Pop(); 
+                stack.Push(a + b);
+            }
+            else if (token == "-")
+            {
+                double b = stack.Pop(); 
+                double a = stack.Pop(); 
+                stack.Push(a - b);
+            }
+            else if (token == "*")
+            {
+                double b = stack.Pop(); 
+                double a = stack.Pop(); 
+                stack.Push(a * b);
+            }
+            else if (token == "/")
+            {
+                double b = stack.Pop(); 
+                double a = stack.Pop(); 
+                stack.Push(a / b);
+            }
         }
+        return stack.Pop();
     }
 
 }
