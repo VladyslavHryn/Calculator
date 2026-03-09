@@ -34,6 +34,28 @@
                 double a = stack.Pop(); 
                 stack.Push(a / b);
             }
+            else if (token == "^")
+            {
+                double b = stack.Pop();
+                double a = stack.Pop();
+                stack.Push(Math.Pow(a, b));
+            }
+            else if (token == "sin")
+            {
+                double a = stack.Pop();
+                stack.Push(Math.Sin(a));
+            }
+            else if (token == "cos")
+            {
+                double a = stack.Pop();
+                stack.Push(Math.Cos(a));
+            }
+            else if (token == "max")
+            {
+                double b = stack.Pop();
+                double a = stack.Pop();
+                stack.Push(Math.Max(a, b));
+            }
         }
         return stack.Pop();
     }

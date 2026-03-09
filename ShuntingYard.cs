@@ -28,7 +28,7 @@
                 }
                 operators.Pop(); // видаляємо "(" зі стеку
             }
-            else if (token == "+" || token == "-" || token == "*" || token == "/")
+            else if (token == "+" || token == "-" || token == "*" || token == "/" || token == "^")
             {
                 while (!operators.IsEmpty() && operators.Peek() != "(" && Priority(operators.Peek()) >= Priority(token))
                 {
@@ -36,6 +36,10 @@
                     counter++;
                 }
                 operators.Push(token); // кладемо поточний оператор в стек
+            }
+            else if (token == "sin" || token == "cos" || token == "max")
+            {
+                operators.Push(token);
             }
         }
            
@@ -57,6 +61,10 @@
             return 2;
         if (op == "+" || op == "-") 
             return 1;
+        if (op == "^") 
+            return 3;
+        if (op == "sin" || op == "cos" || op == "max") 
+            return 4;
         return 0;
     }
 }
